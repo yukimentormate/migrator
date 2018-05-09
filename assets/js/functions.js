@@ -53,8 +53,10 @@
 
 				var currUrl = window.location.href;
 				var targetUrlArr = currUrl.split( '/' );
-				targetUrlArr.splice( -1, 1, 'migration-functions.php' );
+				targetUrlArr.splice( -1, 1, 'index.php?ajax=1' );
 				var targetUrl = targetUrlArr.join( '/' );
+
+                console.log( targetUrl );
 
 				$.ajax({
 					type: 'post' ,
@@ -63,6 +65,7 @@
 					processData: false,
 					data: formData,
 					success: function ( response ) {
+                        console.log( response );
 						var $result = $.parseJSON( response );
 
 						if ( $result.status === 'error' ) {

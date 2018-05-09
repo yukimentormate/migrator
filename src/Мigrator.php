@@ -1,5 +1,5 @@
 <?php
-class Migrate {
+class Мigrator {
 
     public function __construct() {
         //

@@ -1,5 +1,5 @@
 <?php
-class FileManipulate {
+class FileManipulator {
 
     /**
      *  Unzip (if needed) the file provided.

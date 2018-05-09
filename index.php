@@ -7,8 +7,8 @@ if ( isset( $_GET[ 'ajax' ] ) ) {
 	require( 'migration-functions.php' );
 }
 
-require( 'src/FileManipulate.php' );
-$file_manipulate = new FileManipulate;
-$file_manipulate->force_download_file();
+require( 'src/FileManipulator.php' );
+$file_manipulator = new FileManipulator;
+$file_manipulator->force_download_file();
 
 require( 'views/master.php' );

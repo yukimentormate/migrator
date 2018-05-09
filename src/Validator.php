@@ -1,5 +1,5 @@
 <?php
-class Validate {
+class Validator {
 
     public function is_required( $field ){
         if ( empty( $field ) ) {

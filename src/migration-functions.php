@@ -1,7 +1,7 @@
 <?php
-require( __DIR__ . '/src/Мigrator.php' );
-require( __DIR__ . '/src/Validator.php' );
-require( __DIR__ . '/src/FileManipulator.php' );
+require( __DIR__ . '/Classes/Мigrator.php' );
+require( __DIR__ . '/Classes/Validator.php' );
+require( __DIR__ . '/Classes/FileManipulator.php' );
 
 // Input Data
 $migrator = new Мigrator;

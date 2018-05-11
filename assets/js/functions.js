@@ -56,8 +56,6 @@
 				targetUrlArr.splice( -1, 1, 'index.php?ajax=1' );
 				var targetUrl = targetUrlArr.join( '/' );
 
-                console.log( targetUrl );
-
 				$.ajax({
 					type: 'post' ,
 					url: targetUrl,
@@ -65,7 +63,6 @@
 					processData: false,
 					data: formData,
 					success: function ( response ) {
-                        console.log( response );
 						var $result = $.parseJSON( response );
 
 						if ( $result.status === 'error' ) {

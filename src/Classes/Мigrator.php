@@ -1,8 +1,18 @@
 <?php
+
+require( __DIR__ . '\Validator.php' );
+require( __DIR__ . '\FileManipulator.php' );
+
 class Мigrator {
+    public $validator;
+    public $file_manipulator;
 
     public function __construct() {
-        //
+        $validator = new Validator;
+        $file_manipulator = new FileManipulator;
+
+        $this->validator = $validator;
+        $this->file_manipulator = $file_manipulator;
     }
 
     /**

@@ -12,3 +12,4 @@ $file_manipulator = new FileManipulator;
 $file_manipulator->force_download_file();
 
 require( 'views/master.php' );
+

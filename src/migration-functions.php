@@ -1,12 +1,8 @@
 <?php
 require( __DIR__ . '/Classes/Мigrator.php' );
-require( __DIR__ . '/Classes/Validator.php' );
-require( __DIR__ . '/Classes/FileManipulator.php' );
 
 // Input Data
 $migrator = new Мigrator;
-$validator = new Validator;
-$file_manipulator = new FileManipulator;
 
 $response = array(
 	'status' => 'error',
@@ -20,15 +16,15 @@ isset( $_POST[ 'enable-gzip' ] ) ? $enable_gzip = $_POST[ 'enable-gzip' ] : $ena
 $unzip_needed = true;
 
 // check for empty input and return errors if needed.
-$validator->is_required( $database );
-$validator->is_required( $new_url );
+$migrator->validator->is_required( $database );
+$migrator->validator->is_required( $new_url );
 
 // check for uploaded file type returns errors.
 $allowed_types = array( 'sql', 'zip' );
 $file_name = $database[ 'name' ];
 $file_extension = pathinfo( $file_name, PATHINFO_EXTENSION );
 
-$validator->check_file_type( $file_name, $allowed_types );
+$migrator->validator->check_file_type( $file_name, $allowed_types );
 
 /* check the extension and returns the database string
 *  if it is zip file - uncomporess the archive and return the database string;
@@ -56,7 +52,7 @@ $new_database_string = $migrator->replace_new_prefix( $new_prefix, $new_database
 */
 $secret_key = md5( microtime() . rand() );
 $file_name = 'dump-' . date( 'm-d-h-i-s' ) . '-' . $secret_key . '.sql';
-$file_manipulator->create_new_file( $file_name, $new_database_string, $enable_gzip );
+$migrator->file_manipulator->create_new_file( $file_name, $new_database_string, $enable_gzip );
 
 $response[ 'status' ] = 'success';
 $response[ 'zip' ] = $enable_gzip;

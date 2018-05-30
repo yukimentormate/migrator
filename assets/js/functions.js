@@ -63,6 +63,7 @@
 					processData: false,
 					data: formData,
 					success: function ( response ) {
+                        console.log( response );
 						var $result = $.parseJSON( response );
 
 						if ( $result.status === 'error' ) {

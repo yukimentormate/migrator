@@ -4,7 +4,7 @@
 */
 
 if ( isset( $_GET[ 'ajax' ] ) ) {
-	require( 'src/migration-functions.php' );
+    require( 'src/migration-functions.php' );
 }
 
 require( 'src/Classes/FileManipulator.php' );
